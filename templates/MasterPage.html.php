@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html data-bs-theme="dark">
     <head>
@@ -9,22 +7,24 @@
 
 		<script type="text/javascript" src="assets/js/bootstrap/bootstrap.min.js"></script>
 	</head>
+	
 	<body>
- <main>
- <?php
-
-
-
-$page = isset($_GET['page']) ? $_GET['page'] : 'index';
-$action = isset($_GET['action']) ? $_GET['action'] : 'index';
-if (is_file($file = 'templates' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR .  $page . 
-DIRECTORY_SEPARATOR . $action . '.php')){
-    include $file;   
-}
- else{
-    die("forget about it");
- }
- exit;
- ?>
- </main>
-</body>
+		<main>
+			<section class="content">
+				<?php
+					$page = isset($_GET['page']) ? $_GET['page'] : 'index';
+					$action = isset($_GET['action']) ? $_GET['action']: 'index';
+					if (is_file($file = 'templates/views' . DIRECTORY_SEPARATOR . $page . DIRECTORY_SEPARATOR . $action . '.php'))
+					{
+						include ($file);
+					}
+					else
+					{
+						die('Forget about it');
+					}
+					//exit;
+				?>
+			</section>
+		</main>
+    </body>
+</html>
