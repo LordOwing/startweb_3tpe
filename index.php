@@ -1,5 +1,5 @@
 <?php
-
+include('app/config/session.php')
 header('Content-Type: text/html; charset=UTF-8');
 
 require('app/config/config.php');
