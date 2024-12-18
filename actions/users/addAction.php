@@ -17,19 +17,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		$dbStatus = [];
 		$password = md5(PASS_SALT . $_POST['password']);
 		$query = "INSERT INTO users SET user_name = '{$_POST['name']}', user_surname = '{$_POST['surname']}', user_email = '{$_POST['email']}', user_password = '$password'";
-		if ($db->query($query))
-		{
-			$dbStatus = ['status' => 'success', 'msg' => 'Data was inserted Successfully'];
-		}
-		else
-		{
-			$dbStatus = ['status' => 'warning', 'msg' => 'Data has not been inserted!'];
-		}
+        if ($db->query($query))
+        {
+            $_SESSION['message']['success'] = 'Data has been saved successfully';
+        }
+        else
+        {
+            $_SESSION['message']['warning'] = 'Data has not been saved!';
+        }
+	}
+	else
+	{
+		$form = $_POST;
 	}
 }
-
-if (isset($dbStatus['status']))
-{
-	showMessage($dbStatus['status'], $dbStatus['msg']);
-}
-include ('templates/form.html.php');
