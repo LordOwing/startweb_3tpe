@@ -51,3 +51,13 @@ ALTER TABLE `users`
 ALTER TABLE `users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
+
+CREATE TABLE `news` (
+ `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+ `news_filename` varchar(255) COLLATE utf8mb4_polish_ci NOT NULL,
+ `news_title` varchar(255) COLLATE utf8mb4_polish_ci NOT NULL,
+ `news_author` varchar(128) COLLATE utf8mb4_polish_ci NOT NULL,
+ `news_content` text COLLATE utf8mb4_polish_ci NOT NULL,
+ `news_publish_date` datetime NOT NULL,
+ `news_active` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
