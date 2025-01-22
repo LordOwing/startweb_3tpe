@@ -1,5 +1,6 @@
 <?php
-
+define("UPLOAD_PATH",  dirname(dirname(dirname(__FILE__))) .
+DIRECTORY_SEPARATOR . 'upload');
 $protocol = 'http://';
 if (isset($_SERVER['HTTPS']))
 {
